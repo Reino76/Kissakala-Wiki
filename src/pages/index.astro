@@ -1,7 +1,146 @@
----
----
-<html lang="en">
-<body class="bg-white flex items-center justify-center min-h-screen">
-    <h1 class="text-black text-6xl font-bold tracking-tighter">kissakala</h1>
-</body>
-</html>
+import React, { useState } from 'react';
+
+/**
+ * A professional, minimalist Wiki layout for Kissakala.
+ * Features a sticky header, a collapsible sidebar for navigation,
+ * and a clean typography-focused content area.
+ */
+export default function App({ children, title = "Kissakala Wiki" }) {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  // Example navigation structure
+  const navigation = [
+    { name: 'Home', href: '/Kissakala-Wiki/' },
+    { 
+      name: 'Getting Started', 
+      items: [
+        { name: 'Introduction', href: '/Kissakala-Wiki/intro' },
+        { name: 'Campus Map', href: '/Kissakala-Wiki/map' },
+        { name: 'Enrollment', href: '/Kissakala-Wiki/enrollment' },
+      ]
+    },
+    { 
+      name: 'Studies', 
+      items: [
+        { name: 'Course Selection', href: '/Kissakala-Wiki/courses' },
+        { name: 'Exams & Grading', href: '/Kissakala-Wiki/grading' },
+      ]
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-zinc-900 selection:text-white">
+      {/* Top Navigation Bar */}
+      <header className="sticky top-0 z-40 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16 items-center">
+            <div className="flex items-center gap-4">
+              <button 
+                onClick={() => setSidebarOpen(!isSidebarOpen)}
+                className="p-2 -ml-2 text-zinc-500 hover:text-zinc-900 lg:hidden"
+                aria-label="Toggle sidebar"
+              >
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+              </button>
+              <a href="/Kissakala-Wiki/" className="flex items-center gap-2 group">
+                <div className="w-8 h-8 bg-zinc-900 flex items-center justify-center rounded shadow-sm group-hover:scale-105 transition-transform">
+                  <span className="text-white font-bold text-xs">K</span>
+                </div>
+                <span className="text-xl font-black tracking-tighter uppercase italic">kissakala</span>
+              </a>
+            </div>
+            
+            <div className="hidden md:flex items-center gap-6 text-sm font-medium">
+              <a href="https://github.com" className="text-zinc-500 hover:text-zinc-900 transition-colors">GitHub</a>
+              <a href="#" className="px-3 py-1.5 bg-zinc-900 text-white rounded hover:bg-zinc-800 transition-colors">Login</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-8 py-8">
+        {/* Sidebar Navigation */}
+        <aside className={`
+          fixed lg:relative inset-0 lg:inset-auto z-30 
+          ${isSidebarOpen ? 'block' : 'hidden lg:block'}
+          bg-white lg:bg-transparent w-full lg:w-64 shrink-0
+        `}>
+          <nav className="space-y-8 sticky top-24 overflow-y-auto max-h-[calc(100vh-8rem)]">
+            {navigation.map((group) => (
+              <div key={group.name} className="space-y-3">
+                {group.href ? (
+                  <a href={group.href} className="block text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-zinc-900 transition-colors">
+                    {group.name}
+                  </a>
+                ) : (
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-400">
+                    {group.name}
+                  </h3>
+                )}
+                
+                {group.items && (
+                  <ul className="space-y-1 border-l border-zinc-100 ml-1">
+                    {group.items.map((item) => (
+                      <li key={item.name}>
+                        <a 
+                          href={item.href}
+                          className="block py-1.5 pl-4 text-sm text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50 rounded-r-md transition-all border-l-2 border-transparent hover:border-zinc-900 -ml-[1px]"
+                        >
+                          {item.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </nav>
+        </aside>
+
+        {/* Main Content Area */}
+        <main className="flex-1 max-w-3xl min-w-0">
+          <article className="prose prose-zinc max-w-none">
+            {/* Breadcrumbs */}
+            <nav className="flex text-xs text-zinc-400 mb-4 gap-2 uppercase tracking-wide font-bold">
+              <a href="/Kissakala-Wiki/" className="hover:text-zinc-900">Home</a>
+              <span>/</span>
+              <span className="text-zinc-900">{title}</span>
+            </nav>
+            
+            <header className="mb-10 pb-10 border-b border-zinc-100">
+              <h1 className="text-5xl font-black tracking-tight text-zinc-900 mb-4">
+                {title}
+              </h1>
+              <p className="text-xl text-zinc-500 leading-relaxed font-light">
+                Official documentation and resources for the Kissakala student project.
+              </p>
+            </header>
+
+            <div className="space-y-6 text-zinc-700 leading-7">
+               {children}
+            </div>
+          </article>
+
+          {/* Footer */}
+          <footer className="mt-20 pt-10 border-t border-zinc-100 text-xs text-zinc-400 flex justify-between items-center pb-12">
+            <p>© 2026 Kissakala Project Team. Built with Astro & React.</p>
+            <div className="flex gap-4">
+              <a href="#" className="hover:text-zinc-900">Privacy</a>
+              <a href="#" className="hover:text-zinc-900">Terms</a>
+            </div>
+          </footer>
+        </main>
+      </div>
+      
+      {/* Mobile Sidebar Overlay */}
+      {isSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/10 z-20 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+    </div>
+  );
+}
