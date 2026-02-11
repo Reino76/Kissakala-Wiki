@@ -11,9 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: withastro/action@v3
+      - name: Install and Build
+        uses: withastro/action@v3
         with:
-          package-manager: npm # Fixes the "No lockfile" error
+          package-manager: npm
   deploy:
     needs: build
     runs-on: ubuntu-latest
