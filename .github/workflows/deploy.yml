@@ -10,8 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Install and Build
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install, build, and upload your site
         uses: withastro/action@v3
         with:
           package-manager: npm
@@ -21,4 +22,6 @@ jobs:
     environment:
       name: github-pages
     steps:
-      - uses: actions/deploy-pages@v4
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
