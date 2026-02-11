@@ -5,20 +5,20 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const navigation = [
-    { name: 'Home', href: '/Kissakala-Wiki/' },
+    { name: 'Koti', href: '/Kissakala-Wiki/' },
     { 
-      name: 'Getting Started', 
+      name: 'Aloitusteksti', 
       items: [
-        { name: 'Introduction', href: '/Kissakala-Wiki/intro' },
-        { name: 'Campus Map', href: '/Kissakala-Wiki/map' },
-        { name: 'Enrollment', href: '/Kissakala-Wiki/enrollment' },
+        { name: 'Blabla', href: '/Kissakala-Wiki/intro' },
+        { name: 'Blublub', href: '/Kissakala-Wiki/map' },
+        { name: 'Mjäyyy', href: '/Kissakala-Wiki/enrollment' },
       ]
     },
     { 
-      name: 'Studies', 
+      name: 'Murrr', 
       items: [
-        { name: 'Course Selection', href: '/Kissakala-Wiki/courses' },
-        { name: 'Exams & Grading', href: '/Kissakala-Wiki/grading' },
+        { name: 'Miauuuu', href: '/Kissakala-Wiki/courses' },
+        { name: 'Mjäyyyyyy', href: '/Kissakala-Wiki/grading' },
       ]
     },
   ];
