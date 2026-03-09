@@ -34,3 +34,29 @@ html {
   animation: target-flash 1.5s ease-out forwards;
   border-radius: 0.25rem;
 }
+/* Enable smooth scrolling globally */
+html {
+  scroll-behavior: smooth;
+}
+
+/* TÄMÄ ON UUSI KORJAUS: Pakottaa ankkurilinkit pysähtymään ruudun keskivaiheille, ei yläreunaan */
+[id] {
+  scroll-margin-top: 35vh; 
+}
+
+/* Custom animation for highlighting the target element */
+@keyframes target-flash {
+  0% { 
+    background-color: #fde047; /* Tailwind yellow-300 */
+    box-shadow: 0 0 0 4px #fde047;
+  }
+  100% { 
+    background-color: transparent;
+    box-shadow: 0 0 0 4px transparent;
+  }
+}
+
+.highlight-target {
+  animation: target-flash 1.5s ease-out forwards;
+  border-radius: 0.25rem;
+}
