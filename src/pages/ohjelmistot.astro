@@ -2,24 +2,53 @@
 import Layout from '../layouts/Layout.jsx';
 ---
 
-<Layout title="Ohjelmistot ja Sovellukset" client:load>
-  <p>Tärkeitä ohjelmistoja ja sovelluksia opintojen aikana:</p>
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ohjelmistot ja Sovellukset - Kissakala Wiki</title>
+  </head>
+  <body>
+    <Layout title="Ohjelmistot ja Sovellukset" client:load>
+      <p class="text-lg text-zinc-600 mb-8">Tärkeitä ohjelmistoja ja sovelluksia opintojen aikana:</p>
 
-  <ul class="list-disc pl-6 space-y-4 mt-6">
-    <li id="teams">
-      <strong>Microsoftin sovellukset:</strong> Tuni-tunnuksilla saat lisenssin kaikkiin Microsoftin sovelluksiin, kuten Teamsiin, jota käytämme aktiivisesti <a href="/Kissakala-Wiki/projektit" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">projekteista</a> ja opinnoista viestimiseen.
-    </li>
-    <li id="tuudo">
-      <strong>Tuudo:</strong> Sovellus, josta löydät muun muassa opiskelijakortin, lukujärjestyksen, suoritettujen opintojen määrän, etuja opiskelijoille, opiskelijaravintoloiden ruokalistat, TAMK:in pohjakartan sekä tärkeitä yhteystietoja.
-    </li>
-    <li>
-      <strong>Frank App:</strong> Kätevä sovellus, josta löytyy kaikenlaisia etuuksia, esimerkiksi alekoodeja <a href="/Kissakala-Wiki/opiskelijaelama" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">opiskelijaelämää</a> varten!
-    </li>
-    <li><strong>Canva:</strong> Graafisen suunnittelun työkalu.</li>
-    <li><strong>Monday:</strong> Aikataulutussovellus, jossa pystyy jakamaan tehtäviä muille jne.</li>
-    <li id="clockify">
-      <strong>Clockify:</strong> Sovellus / nettisivu <a href="/Kissakala-Wiki/projektit" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">projektituntien</a> merkkaamiseen.
-    </li>
-    <li><strong>Discord:</strong> VETO:lla on oma Discord-kanava, johon pääset liittymään linkin kautta.</li>
-  </ul>
-</Layout>
+      <ul class="space-y-6">
+        <li id="teams" class="bg-zinc-50 p-4 rounded-lg border border-zinc-100">
+          <strong class="block text-lg mb-1">Microsoftin sovellukset</strong> 
+          <span class="text-zinc-600">Tuni-tunnuksilla saat lisenssin kaikkiin Microsoftin sovelluksiin, kuten Teamsiin, jota käytämme aktiivisesti <a href="/Kissakala-Wiki/projektit/" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-900 transition-colors">projekteista</a> ja opinnoista viestimiseen.</span>
+        </li>
+        
+        <li id="tuudo" class="bg-zinc-50 p-4 rounded-lg border border-zinc-100">
+          <strong class="block text-lg mb-1">Tuudo</strong> 
+          <span class="text-zinc-600">Sovellus, josta löydät muun muassa opiskelijakortin, lukujärjestyksen, suoritettujen opintojen määrän, etuja opiskelijoille, opiskelijaravintoloiden ruokalistat, TAMK:in pohjakartan sekä tärkeitä yhteystietoja.</span>
+        </li>
+
+        <li class="bg-zinc-50 p-4 rounded-lg border border-zinc-100">
+          <strong class="block text-lg mb-1">Frank App</strong> 
+          <span class="text-zinc-600">Kätevä sovellus, josta löytyy kaikenlaisia etuuksia, esimerkiksi alekoodeja <a href="/Kissakala-Wiki/opiskelijaelama/" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-900 transition-colors">opiskelijaelämää</a> varten!</span>
+        </li>
+        
+        <li class="bg-zinc-50 p-4 rounded-lg border border-zinc-100">
+          <strong class="block text-lg mb-1">Canva</strong> 
+          <span class="text-zinc-600">Graafisen suunnittelun työkalu.</span>
+        </li>
+        
+        <li class="bg-zinc-50 p-4 rounded-lg border border-zinc-100">
+          <strong class="block text-lg mb-1">Monday</strong> 
+          <span class="text-zinc-600">Aikataulutussovellus, jossa pystyy jakamaan tehtäviä muille jne.</span>
+        </li>
+        
+        <li id="clockify" class="bg-zinc-50 p-4 rounded-lg border border-zinc-100">
+          <strong class="block text-lg mb-1">Clockify</strong> 
+          <span class="text-zinc-600">Sovellus / nettisivu <a href="/Kissakala-Wiki/projektit/" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-900 transition-colors">projektituntien</a> merkkaamiseen.</span>
+        </li>
+        
+        <li class="bg-zinc-50 p-4 rounded-lg border border-zinc-100">
+          <strong class="block text-lg mb-1">Discord</strong> 
+          <span class="text-zinc-600">VETO:lla on oma Discord-kanava, johon pääset liittymään linkin kautta.</span>
+        </li>
+      </ul>
+    </Layout>
+  </body>
+</html>

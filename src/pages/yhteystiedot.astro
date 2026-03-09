@@ -2,23 +2,49 @@
 import Layout from '../layouts/Layout.jsx';
 ---
 
-<Layout title="Yhteystiedot" client:load>
-  <p>Täältä löydät tärkeimmät yhteystiedot VETO-opintojesi tueksi.</p>
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yhteystiedot - Kissakala Wiki</title>
+  </head>
+  <body>
+    <Layout title="Yhteystiedot" client:load>
+      <p class="mb-8 sm:mb-10 text-lg text-zinc-600">Täältä löydät tärkeimmät yhteystiedot VETO-opintojesi tueksi.</p>
 
-  <h2 id="tiimivalmentajat" class="text-2xl font-bold mt-8 mb-4">Tiimivalmentajat</h2>
-  <p>
-    Tiimivalmentaja on lähin ohjaajasi opintojen aikana. Hänen kanssaan käyt <a href="/Kissakala-Wiki/opinnot#systeemiajattelu" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">HOPS-keskustelut</a> ja sovit tiimisi yhteisistä asioista.
-  </p>
-  <ul class="list-disc pl-6 space-y-2 mt-4">
-    <li><strong>[Tiimivalmentajan Nimi]</strong> – Sähköposti: etunimi.sukunimi@tuni.fi</li>
-    <li><strong>Veijo Hämäläinen</strong> – Systeemiajattelu: veijo.hamalainen@tuni.fi</li>
-  </ul>
+      <div class="mb-12">
+        <h2 id="tiimivalmentajat" class="text-2xl font-bold mb-4">Tiimivalmentajat</h2>
+        <p class="mb-6">
+          Tiimivalmentaja on lähin ohjaajasi opintojen aikana. Hänen kanssaan käyt <a href="/Kissakala-Wiki/opinnot/#systeemiajattelu" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">HOPS-keskustelut</a> ja sovit tiimisi yhteisistä asioista.
+        </p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-white border border-zinc-200 p-5 rounded-xl shadow-sm break-words">
+            <strong class="block text-lg text-zinc-900">[Tiimivalmentajan Nimi]</strong>
+            <span class="text-sm text-zinc-500">etunimi.sukunimi@tuni.fi</span>
+          </div>
+          <div class="bg-white border border-zinc-200 p-5 rounded-xl shadow-sm break-words">
+            <strong class="block text-lg text-zinc-900">Veijo Hämäläinen</strong>
+            <span class="block text-sm text-zinc-500 mb-1">Systeemiajattelu</span>
+            <span class="text-sm text-zinc-500">veijo.hamalainen@tuni.fi</span>
+          </div>
+        </div>
+      </div>
 
-  <h2 id="tutkintovalmentajat" class="text-2xl font-bold mt-8 mb-4">Tutkintovalmentajat</h2>
-  <p>
-    Tutkintovalmentajaan voit olla yhteydessä, jos sinulla on kysyttävää opintojen rakenteesta laajemmassa mittakaavassa tai jos haluat hyväksyttää TAMK:in ulkopuolisia kursseja <a href="/Kissakala-Wiki/opinnot#tyoelamaoppiminen" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">AAK-opintoihin</a>.
-  </p>
-  <ul class="list-disc pl-6 space-y-2 mt-4">
-    <li><strong>[Tutkintovalmentajan Nimi]</strong> – Sähköposti: etunimi.sukunimi@tuni.fi</li>
-  </ul>
-</Layout>
+      <hr class="my-10 sm:my-12 border-zinc-200" />
+
+      <div>
+        <h2 id="tutkintovalmentajat" class="text-2xl font-bold mb-4">Tutkintovalmentajat</h2>
+        <p class="mb-6">
+          Tutkintovalmentajaan voit olla yhteydessä, jos sinulla on kysyttävää opintojen rakenteesta laajemmassa mittakaavassa tai jos haluat hyväksyttää TAMK:in ulkopuolisia kursseja <a href="/Kissakala-Wiki/opinnot/#tyoelamaoppiminen" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">AAK-opintoihin</a>.
+        </p>
+
+        <div class="bg-white border border-zinc-200 p-5 rounded-xl shadow-sm md:w-1/2 break-words">
+          <strong class="block text-lg text-zinc-900">[Tutkintovalmentajan Nimi]</strong>
+          <span class="text-sm text-zinc-500">etunimi.sukunimi@tuni.fi</span>
+        </div>
+      </div>
+    </Layout>
+  </body>
+</html>

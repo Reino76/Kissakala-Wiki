@@ -2,43 +2,80 @@
 import Layout from '../layouts/Layout.jsx';
 ---
 
-<Layout title="Opintojen Rakenne" client:load>
-  <p>VETO-opintosuunnitelma löytyy täältä.</p>
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opintojen Rakenne - Kissakala Wiki</title>
+  </head>
+  <body>
+    <Layout title="Opintojen Rakenne" client:load>
+      <p class="text-lg text-zinc-600 mb-8">VETO-opintosuunnitelma löytyy täältä.</p>
 
-  <h2 id="tiimioppiminen" class="text-2xl font-bold mt-8 mb-4">Tiimioppiminen</h2>
-  <p>
-    Tiimioppimisesta kertyy yhteensä 45 opintopistettä. Tiimiopilla tarkoitetaan yhteisiä päiviä tiimivalmentajan kanssa koululla. Tiimioppimista on lähes koko opintojen ajan. Tiimioppia on yleensä 1–2 kertaa viikossa, ja jokainen tiimi sopii ajankohdat yleensä itse. Tiimioppimiseen sisältyvät esimerkiksi esseet, työpajat, <a href="#systeemiajattelu" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">Veijon systeemiajattelu</a> sekä <a href="#systeemiajattelu" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">HOPS-keskustelut</a>.
-  </p>
-  
-  <h3 id="systeemiajattelu" class="text-xl font-semibold mt-6 mb-2">Systeemiajattelu ja HOPS</h3>
-  <p>
-    Systeemiajattelu on Veijo Hämäläisen ohjaama opintojakso. Kokonaisuus on suuruudeltaan 5 opintopistettä, mutta opintojakso suoritetaan pienemmissä osissa, 2,5 opintopistettä 2. lukuvuotena + 2,5 opintopistettä 3. lukuvuotena. HOPS-keskustelussa jokainen käy tiimivalmentajan kanssa kahdestaan läpi opintojen etenemistä. HOPS-keskustelut käydään jokaisen lukukauden lopussa (syksyllä ja keväällä) ja tiimivalmentaja ilmoittaa ajankohdista itse omalle ryhmälleen.
-  </p>
+      <hr class="my-10 sm:my-12 border-zinc-200" />
 
-  <h2 id="tyoelamaoppiminen" class="text-2xl font-bold mt-8 mb-4">Työelämäoppiminen ja AAK</h2>
-  <p>
-    Työelämäoppimisesta kertyy 60–85 opintopistettä. Työelämäoppimisella tarkoitetaan <a href="/Kissakala-Wiki/projektit" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">projekteja</a> sekä harjoitteluja. Työelämäoppimisen alle sijoitetut kurssit opetussuunnitelmassa täyttyvät sitä mukaa, kun saat opintopisteitä projekteista ja harjoittelusta.
-  </p>
-  <p>
-    Ammatillisen asiantuntijuuden kehittämisestä (AAK) kertyy 70–95 opintopistettä. Tämän alle sijoitetaan esimerkiksi kaikki kurssit, joita käyt. Kursseista pitää saada 70 opintopistettä, medianomien 90 opintopistettä. Jos haluat käydä TAMK:in ulkopuolisia kursseja, tulee ne ”hyväksyttää” tutkintovalmentajalla!
-  </p>
+      <h2 id="tiimioppiminen" class="text-2xl font-bold mb-4">Tiimioppiminen</h2>
+      <p>
+        Tiimioppimisesta kertyy yhteensä 45 opintopistettä. Tiimiopilla tarkoitetaan yhteisiä päiviä <a href="/Kissakala-Wiki/yhteystiedot/" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">tiimivalmentajan</a> kanssa koululla. Tiimioppimista on lähes koko opintojen ajan. Tiimioppia on yleensä 1–2 kertaa viikossa, ja jokainen tiimi sopii ajankohdat yleensä itse. Tiimioppimiseen sisältyvät esimerkiksi esseet, työpajat, <a href="#systeemiajattelu" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">Veijon systeemiajattelu</a> sekä <a href="#systeemiajattelu" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">HOPS-keskustelut</a>.
+      </p>
+      
+      <div class="bg-zinc-50 border border-zinc-100 p-5 sm:p-6 rounded-xl my-8">
+        <h3 id="systeemiajattelu" class="text-xl font-semibold mb-2">Systeemiajattelu ja HOPS</h3>
+        <p class="mb-4">
+          Systeemiajattelu on Veijo Hämäläisen ohjaama opintojakso. Kokonaisuus on suuruudeltaan 5 opintopistettä, mutta opintojakso suoritetaan pienemmissä osissa: 2,5 opintopistettä 2. lukuvuotena + 2,5 opintopistettä 3. lukuvuotena. 
+        </p>
+        <p>
+          HOPS-keskustelussa jokainen käy tiimivalmentajan kanssa kahdestaan läpi opintojen etenemistä. HOPS-keskustelut käydään jokaisen lukukauden lopussa (syksyllä ja keväällä) ja tiimivalmentaja ilmoittaa ajankohdista itse omalle ryhmälleen.
+        </p>
+      </div>
 
-  <h2 id="kurssit" class="text-2xl font-bold mt-8 mb-4">Kurssit ja Kansainvälisyys</h2>
-  <h3 class="text-xl font-semibold mt-4 mb-2">Ruotsin kurssit</h3>
-  <p>
-    Ruotsin kursseja on yleensä kaksi, suullinen ja kirjallinen (muntlig + skriftlig). Niin sanottu ”virkamiesruotsi” on kaikille pakollinen. Voit käydä ruotsin kurssit periaatteessa milloin vain, mutta on kuitenkin suositeltavaa, että niitä ei jätetä viimeiselle vuodelle, etenkin jos kielen osaaminen on heikkoa. Tämä siksi, että ehdit tarvittaessa uusia ruotsin, jolloin valmistuminen ei jää kursseista kiinni. Valmistavat ruotsin kurssit ovat pakollisia ennen varsinaisia kursseja.
-  </p>
+      <hr class="my-10 sm:my-12 border-zinc-200" />
 
-  <h3 class="text-xl font-semibold mt-4 mb-2">Co-working and Impacting in Global Environment</h3>
-  <p>
-    Tällä kurssitoteutuksella tarkoitetaan kansainvälisiä <a href="/Kissakala-Wiki/projektit" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">projekteja</a>, joissa projektikielenä toimii englanti tai projekti toteutetaan kansainvälisessä ympäristössä. Toteutukseen ei kuulu Eye on TAMK tai Sprint!
-  </p>
+      <h2 id="tyoelamaoppiminen" class="text-2xl font-bold mb-4">Työelämäoppiminen ja AAK</h2>
+      <p class="mb-6">
+        Työelämäoppimisesta kertyy 60–85 opintopistettä. Työelämäoppimisella tarkoitetaan <a href="/Kissakala-Wiki/projektit/" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">projekteja</a> sekä harjoitteluja. Työelämäoppimisen alle sijoitetut kurssit opetussuunnitelmassa täyttyvät sitä mukaa, kun saat opintopisteitä projekteista ja harjoittelusta.
+      </p>
+      <p>
+        Ammatillisen asiantuntijuuden kehittämisestä (AAK) kertyy 70–95 opintopistettä. Tämän alle sijoitetaan esimerkiksi kaikki kurssit, joita käyt. Kursseista pitää saada 70 opintopistettä, medianomien 90 opintopistettä. Jos haluat käydä TAMK:in ulkopuolisia kursseja, tulee ne ”hyväksyttää” tutkintovalmentajalla!
+      </p>
 
-  <h2 id="opintojen-paatos" class="text-2xl font-bold mt-8 mb-4">Opintojen Päätös</h2>
-  <p>
-    <strong>Final Camp</strong> on ryhmän viimeisenä vuotena toteutettava ”viimeinen taidonnäyte”, joka järjestetään kansainvälisessä ympäristössä esimerkiksi ulkomailla. Jokainen ryhmä suunnittelee ja kerää varansa Final Campia varten omalla tavallaan, ja se on 5 opintopisteen arvoinen.
-  </p>
-  <p>
-    <strong>Opinnäytetyöstä</strong> saa yhteensä 15 opintopistettä, mihin kuuluu suunnittelu, toteutus ja esittäminen. Opinnäytetyöt esitellään opparifestareilla.
-  </p>
-</Layout>
+      <hr class="my-10 sm:my-12 border-zinc-200" />
+
+      <h2 id="kurssit" class="text-2xl font-bold mb-4">Kurssit ja Kansainvälisyys</h2>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Ruotsin kurssit</h3>
+          <p>
+            Ruotsin kursseja on yleensä kaksi, suullinen ja kirjallinen (muntlig + skriftlig). Niin sanottu ”virkamiesruotsi” on kaikille pakollinen. Voit käydä ruotsin kurssit periaatteessa milloin vain, mutta on kuitenkin suositeltavaa, että niitä ei jätetä viimeiselle vuodelle, etenkin jos kielen osaaminen on heikkoa. Tämä siksi, että ehdit tarvittaessa uusia ruotsin, jolloin valmistuminen ei jää kursseista kiinni. Valmistavat ruotsin kurssit ovat pakollisia ennen varsinaisia kursseja.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Co-working and Impacting in Global Environment</h3>
+          <p>
+            Tällä kurssitoteutuksella tarkoitetaan kansainvälisiä <a href="/Kissakala-Wiki/projektit/" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">projekteja</a>, joissa projektikielenä toimii englanti tai projekti toteutetaan kansainvälisessä ympäristössä. Toteutukseen ei kuulu Eye on TAMK tai Sprint!
+          </p>
+        </div>
+      </div>
+
+      <hr class="my-10 sm:my-12 border-zinc-200" />
+
+      <h2 id="opintojen-paatos" class="text-2xl font-bold mb-4">Opintojen Päätös</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-6">
+        <div class="bg-zinc-900 text-white p-5 sm:p-6 rounded-xl">
+          <h3 class="text-lg font-bold mb-2">Final Camp</h3>
+          <p class="text-zinc-300 text-sm">
+            Ryhmän viimeisenä vuotena toteutettava ”viimeinen taidonnäyte”, joka järjestetään kansainvälisessä ympäristössä esimerkiksi ulkomailla. Jokainen ryhmä suunnittelee ja kerää varansa Final Campia varten omalla tavallaan, ja se on 5 opintopisteen arvoinen.
+          </p>
+        </div>
+        <div class="bg-zinc-50 border border-zinc-200 p-5 sm:p-6 rounded-xl">
+          <h3 class="text-lg font-bold mb-2">Opinnäytetyö</h3>
+          <p class="text-zinc-600 text-sm">
+            Opinnäytetyöstä saa yhteensä 15 opintopistettä, mihin kuuluu suunnittelu, toteutus ja esittäminen. Opinnäytetyöt esitellään opparifestareilla.
+          </p>
+        </div>
+      </div>
+    </Layout>
+  </body>
+</html>

@@ -4,23 +4,16 @@ import '../styles/global.css';
 export default function Layout({ children, title = "Kissakala Wiki" }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
-// Effect to handle highlighting on page load or hash change
   useEffect(() => {
     const handleHashAndHighlight = () => {
       const hash = window.location.hash;
       if (hash) {
-        // Pieni viive varmistaa, että Astro on ladannut DOMin ja selain on aloittanut CSS-vierityksen
         setTimeout(() => {
           const targetId = hash.replace('#', '');
           const element = document.getElementById(targetId);
           
           if (element) {
-            // Poistettu element.scrollIntoView(), koska CSS scroll-margin-top hoitaa nyt keskittämisen täydellisesti!
-            
-            // Add the highlight animation class
             element.classList.add('highlight-target');
-            
-            // Remove the class after the animation completes (1.5s)
             setTimeout(() => {
               element.classList.remove('highlight-target');
             }, 1500);
@@ -29,10 +22,7 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
       }
     };
 
-    // Run on initial load
     handleHashAndHighlight();
-
-    // Run when the hash changes (clicking an internal link on the same page)
     window.addEventListener('hashchange', handleHashAndHighlight);
     
     return () => {
@@ -45,27 +35,27 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
     { 
       name: 'Opinnot & Kurssit', 
       items: [
-        { name: 'Opintojen Rakenne', href: '/Kissakala-Wiki/opinnot' },
-        { name: 'Yhteystiedot', href: '/Kissakala-Wiki/yhteystiedot' }, // UUSI LINKKI LISÄTTY TÄHÄN
+        { name: 'Opintojen Rakenne', href: '/Kissakala-Wiki/opinnot/' },
+        { name: 'Yhteystiedot', href: '/Kissakala-Wiki/yhteystiedot/' },
       ]
     },
     { 
       name: 'Käytäntö', 
       items: [
-        { name: 'Projektit', href: '/Kissakala-Wiki/projektit' },
-        { name: 'Ohjelmistot ja Sovellukset', href: '/Kissakala-Wiki/ohjelmistot' },
+        { name: 'Projektit', href: '/Kissakala-Wiki/projektit/' },
+        { name: 'Ohjelmistot ja Sovellukset', href: '/Kissakala-Wiki/ohjelmistot/' },
       ]
     },
     { 
       name: 'Opiskelijaelämä', 
       items: [
-        { name: 'Opiskelijaelämä & Tapahtumat', href: '/Kissakala-Wiki/opiskelijaelama' },
+        { name: 'Opiskelijaelämä & Tapahtumat', href: '/Kissakala-Wiki/opiskelijaelama/' },
       ]
     },
   ];
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-zinc-900 selection:text-white">
+    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-zinc-900 selection:text-white overflow-x-hidden">
       <header className="sticky top-0 z-40 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
           <div className="flex items-center gap-4">
@@ -82,9 +72,16 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-8 py-8">
-        <aside className={`fixed lg:relative inset-0 lg:inset-auto z-30 ${isSidebarOpen ? 'block' : 'hidden lg:block'} bg-white lg:bg-transparent w-full lg:w-64`}>
-          <nav className="space-y-8 sticky top-24 overflow-y-auto max-h-[calc(100vh-8rem)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-4 lg:gap-8 py-6 lg:py-8">
+        <aside className={`fixed lg:relative inset-0 lg:inset-auto z-30 ${isSidebarOpen ? 'block' : 'hidden lg:block'} bg-white lg:bg-transparent w-full lg:w-56 shrink-0`}>
+          <nav className="space-y-8 sticky top-24 overflow-y-auto max-h-[calc(100vh-8rem)] bg-white lg:bg-transparent p-4 lg:p-0 border-r lg:border-r-0 border-zinc-200 lg:border-transparent h-full lg:h-auto shadow-xl lg:shadow-none">
+            {/* Mobiilivalikon sulkunappi (näkyy vain pienillä ruuduilla) */}
+            <div className="flex justify-end lg:hidden mb-4">
+               <button onClick={() => setSidebarOpen(false)} className="p-2 text-zinc-500 hover:text-zinc-900">
+                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+               </button>
+            </div>
+
             {navigation.map((group) => (
               <div key={group.name} className="space-y-3">
                 <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-400">{group.name}</h3>
@@ -93,6 +90,7 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
                     <li key={item.name}>
                       <a 
                         href={item.href} 
+                        onClick={() => setSidebarOpen(false)}
                         className={`block py-1.5 pl-4 text-sm hover:text-zinc-900 border-l-2 -ml-[1px] transition-all ${
                           title === item.name 
                             ? 'border-zinc-900 text-zinc-900 font-semibold' 
@@ -107,16 +105,21 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
               </div>
             ))}
           </nav>
+          
+          {/* Tumma tausta mobiilivalikolle */}
+          {isSidebarOpen && (
+            <div className="fixed inset-0 bg-zinc-900/20 z-[-1] lg:hidden" onClick={() => setSidebarOpen(false)}></div>
+          )}
         </aside>
 
         <main className="flex-1 max-w-3xl min-w-0 flex flex-col min-h-[calc(100vh-12rem)]">
-          <article className="prose prose-zinc max-w-none flex-grow">
+          <article className="prose prose-zinc max-w-none flex-grow overflow-hidden">
             <nav className="flex text-xs text-zinc-400 mb-4 gap-2 uppercase tracking-wide font-bold">
               <a href="/Kissakala-Wiki/" className="hover:text-zinc-900">Koti</a>
               <span>/</span>
               <span className="text-zinc-900">{title}</span>
             </nav>
-            <h1 className="text-5xl font-black tracking-tight text-zinc-900 mb-4">{title}</h1>
+            <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-zinc-900 mb-4 break-words">{title}</h1>
             <div className="space-y-6 text-zinc-700 leading-7">
                {children}
             </div>

@@ -2,28 +2,62 @@
 import Layout from '../layouts/Layout.jsx';
 ---
 
-<Layout title="Projektit" client:load>
-  <h2 id="mita-ovat-projektit" class="text-2xl font-bold mt-8 mb-4">Mitä ovat projektit?</h2>
-  <p>
-    Projektit ovat mitä projektit ovat, ja ne ovat pakollisia. Projekteille on varattu opetussuunnitelmassa x opintopistettä osana <a href="/Kissakala-Wiki/opinnot#tyoelamaoppiminen" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">työelämäoppimista</a>.
-  </p>
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projektit - Kissakala Wiki</title>
+  </head>
+  <body>
+    <Layout title="Projektit" client:load>
+      
+      <div class="prose-lg text-zinc-700 mb-12">
+        <h2 id="mita-ovat-projektit" class="text-2xl font-bold mb-4 text-zinc-900">Mitä ovat projektit?</h2>
+        <p>
+          Projektit ovat vapaamuotoisia, , ja ne ovat pakollisia. Projekteille on varattu opetussuunnitelmassa x opintopistettä osana <a href="/Kissakala-Wiki/opinnot/#tyoelamaoppiminen" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">työelämäoppimista</a>.
+        </p>
+        
+        <h3 class="text-xl font-semibold mt-8 mb-2 text-zinc-900">Miten pääsen projekteihin?</h3>
+        <p>
+          Projekteihin pääseminen on helppoa! Projekti Kick-offissa esitellään projektit, jotka hakevat uusia tekijöitä tai tuodaan esille projekti-ideoita. Projekteilla on aina yhteyshenkilö, jolle voit ilmoittaa kiinnostuksesi projektia kohtaan. Usein lukuvuoden aikana ilmoitetaan uusista projekteista tai projekti-ideoista myös <a href="/Kissakala-Wiki/ohjelmistot/#teams" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">Teamsissa</a>.
+        </p>
+      </div>
 
-  <h3 class="text-xl font-semibold mt-6 mb-2">Miten pääsen projekteihin?</h3>
-  <p>
-    Projekteihin pääseminen on helppoa! Projekti Kick-offissa esitellään projektit, jotka hakevat uusia tekijöitä tai tuodaan esille projekti-ideoita. Projekteilla on aina yhteyshenkilö, jolle voit ilmoittaa kiinnostuksesi projektia kohtaan. Usein lukuvuoden aikana ilmoitetaan uusista projekteista tai projekti-ideoista myös <a href="/Kissakala-Wiki/ohjelmistot#teams" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">Teamsissa</a>.
-  </p>
+      <div class="bg-yellow-50 border border-yellow-200 p-6 rounded-xl my-12 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-2 h-full bg-yellow-400"></div>
+        <h3 class="text-xl font-bold mb-2 text-yellow-900">Tuntien merkitseminen</h3>
+        <p class="text-yellow-800">
+          Projektitunnit merkitään <a href="/Kissakala-Wiki/ohjelmistot/#clockify" class="font-semibold underline decoration-yellow-400 underline-offset-2 hover:text-yellow-950 transition-colors">Clockifyihin</a>. Pyöristyssääntö on 15 minuuttia. Clockify on sovellus, jota käytämme projektituntien merkitsemiseen, ja opintojen alussa sinut lisätään VETO:n omaan Clockify-ryhmään.
+        </p>
+      </div>
 
-  <h3 class="text-xl font-semibold mt-6 mb-2">Tuntien merkitseminen</h3>
-  <p>
-    Projektitunnit merkitään <a href="/Kissakala-Wiki/ohjelmistot#clockify" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">Clockifyihin</a>. Pyöristyssääntö on 15 minuuttia. Clockify on sovellus, jota käytämme projektituntien merkitsemiseen, ja opintojen alussa sinut lisätään VETO:n omaan Clockify-ryhmään.
-  </p>
+      <hr class="my-12 border-zinc-200" />
 
-  <h2 id="projektitapahtumat" class="text-2xl font-bold mt-8 mb-4">Projekteihin liittyvät tapahtumat</h2>
-  <ul class="list-disc pl-6 space-y-2 mt-4">
-    <li><strong>Projekti Kick-off:</strong> Jokaisen lukukauden alussa pidettävä tilaisuus, jossa esitellään projekteja tai projekti-ideoita, joihin toivotaan uusia tekijöitä.</li>
-    <li><strong>Projektikarkelot:</strong> Järjestetään jokaisen lukukauden lopussa, eli joulu- ja toukokuussa. Projektikarkeloissa projektitiimit esittelevät, mitä ovat kuluvana lukukautena tehneet projektissa ja missä onnistuneet.</li>
-    <li>
-      <strong>Projektiperjantai:</strong> Tämä on hämäävä nimi, koska se ei liity suoraan projekteihin, vaan on koko VETO:n yhteinen <a href="/Kissakala-Wiki/opinnot#tiimioppiminen" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">tiimioppi</a>. Tällöin yleensä käsitellään jotain etukäteen päätettyä aihetta, ja järjestämisestä vastaa viestintäprojektin tiimi.
-    </li>
-  </ul>
-</Layout>
+      <h2 id="projektitapahtumat" class="text-2xl font-bold mb-6">Projekteihin liittyvät tapahtumat</h2>
+      <ul class="space-y-6">
+        <li class="flex gap-4">
+          <div class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-zinc-900 mt-2.5"></div>
+          <div>
+            <strong class="block text-lg text-zinc-900">Projekti Kick-off:</strong> 
+            <span class="text-zinc-600">Jokaisen lukukauden alussa pidettävä tilaisuus, jossa esitellään projekteja tai projekti-ideoita, joihin toivotaan uusia tekijöitä.</span>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <div class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-zinc-900 mt-2.5"></div>
+          <div>
+            <strong class="block text-lg text-zinc-900">Projektikarkelot:</strong> 
+            <span class="text-zinc-600">Järjestetään jokaisen lukukauden lopussa, eli joulu- ja toukokuussa. Projektikarkeloissa projektitiimit esittelevät, mitä ovat kuluvana lukukautena tehneet projektissa ja missä onnistuneet.</span>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <div class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-zinc-900 mt-2.5"></div>
+          <div>
+            <strong class="block text-lg text-zinc-900">Projektiperjantai:</strong> 
+            <span class="text-zinc-600">Tämä on hämäävä nimi, koska se ei liity suoraan projekteihin, vaan on koko VETO:n yhteinen <a href="/Kissakala-Wiki/opinnot/#tiimioppiminen" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-900 transition-colors">tiimioppi</a>. Tällöin yleensä käsitellään jotain etukäteen päätettyä aihetta, ja järjestämisestä vastaa viestintäprojektin tiimi.</span>
+          </div>
+        </li>
+      </ul>
+    </Layout>
+  </body>
+</html>

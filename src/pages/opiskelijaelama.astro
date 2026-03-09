@@ -2,46 +2,80 @@
 import Layout from '../layouts/Layout.jsx';
 ---
 
-<Layout title="Opiskelijaelämä & Tapahtumat" client:load>
-  <p>Muu hupi ja opiskelijaelämä ovat tärkeä osa opiskelua. Älä myöskään unohda opiskelijahaalareita!</p>
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opiskelijaelämä & Tapahtumat - Kissakala Wiki</title>
+  </head>
+  <body>
+    <Layout title="Opiskelijaelämä & Tapahtumat" client:load>
+      <p class="text-xl font-medium text-zinc-500 mb-8">
+        Muu hupi ja opiskelijaelämä ovat tärkeä osa opiskelua. Älä myöskään unohda opiskelijahaalareita!
+      </p>
 
-  <h2 id="lipunmyynti" class="text-2xl font-bold mt-8 mb-4">Tapahtumat ja Lipunmyynti</h2>
-  <p>
-    <strong>Kide Appista</strong> näet kaikki tulevat tapahtumat, ja useimpien tapahtumien liput ostetaan sen kautta.
-  </p>
-  <p>
-    Jos etsit lippuja muualta, useat myyvät niitä <strong>Jodelin Lippukauppa</strong> -nimisellä kanavalla esimerkiksi sairastapausten takia. Varo kuitenkin huijareita!
-  </p>
+      <hr class="my-8 sm:my-10 border-zinc-200" />
 
-  <h2 id="tapahtumat" class="text-2xl font-bold mt-8 mb-4">Opiskelijatapahtumat</h2>
-  
-  <h3 class="text-xl font-semibold mt-4 mb-2">Approt</h3>
-  <p>
-    Approt ovat tapahtuma, jossa kierretään esimerkiksi baareja, ravintoloita ja kahviloita keräten tietty määrä leimoja appropassiin. Approihin liittyy aina appropassi ja kartta, josta näkee paikat leimojen hakuun ja ohjeet suorittamiseen.
-  </p>
+      <h2 id="lipunmyynti" class="text-2xl font-bold mb-4">Tapahtumat ja Lipunmyynti</h2>
+      <div class="bg-zinc-50 border border-zinc-200 p-5 sm:p-6 rounded-xl mb-12">
+        <p class="mb-4">
+          <strong>Kide Appista</strong> näet kaikki tulevat tapahtumat, ja useimpien tapahtumien liput ostetaan sen kautta.
+        </p>
+        <p class="text-sm text-zinc-600 border-l-4 border-zinc-300 pl-4">
+          Jos etsit lippuja muualta, useat myyvät niitä <strong>Jodelin Lippukauppa</strong> -nimisellä kanavalla esimerkiksi sairastapausten takia. Varo kuitenkin huijareita!
+        </p>
+      </div>
 
-  <h3 class="text-xl font-semibold mt-4 mb-2">Sitsit</h3>
-  <p>
-    Sitsit eli akateemiset pöytäjuhlat ovat tapahtuma, joissa opiskelijat kerääntyvät syömään, juomaan ja laulamaan sitsilauluja, ja ohjelmaan kuuluu usein huumorilla maustettuja puheita. Sitsejä ohjaavat pöydän päät eli toastmasterit. Tapahtumassa noudatetaan sääntöjä, joiden rikkomisesta seuraa leikkimielinen rangaistus, ja niillä on usein teema ja/tai pukukoodi.
-  </p>
+      <h2 id="tapahtumat" class="text-2xl font-bold mb-6">Opiskelijatapahtumat</h2>
+      
+      <div class="space-y-8 sm:space-y-10">
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-zinc-800">Approt</h3>
+          <p>
+            Approt ovat tapahtuma, jossa kierretään esimerkiksi baareja, ravintoloita ja kahviloita keräten tietty määrä leimoja appropassiin. Approihin liittyy aina appropassi ja kartta, josta näkee paikat leimojen hakuun ja ohjeet suorittamiseen.
+          </p>
+        </div>
 
-  <h3 id="veton-tapahtumat" class="text-xl font-semibold mt-4 mb-2">VETO:n Omat Tapahtumat</h3>
-  <ul class="list-disc pl-6 space-y-2 mt-4">
-    <li>
-      <strong>Vetosunnarikämppäapprot:</strong> VETO:n omat kämppäapprot järjestetään nimensä mukaan sunnuntaina joka syksy. Tapahtumassa kierretään etukäteen ilmoittautuneiden asuntoja, joissa omistaja tarjoaa esimerkiksi syötävää tai pitää pienen rastin.
-    </li>
-    <li>
-      <strong>Jäsenilta:</strong> Joka lukukauden lopussa järjestettävä ilta, johon pääsevät kaikki VETO:n jäsenyyden ja Kide App -lipun ostaneet. Ohjelmassa jaetaan palkintoja tai diplomeja (joskus jopa hyvistä <a href="/Kissakala-Wiki/projektit" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">projekteista</a>), osallistutaan rasteihin tai kisoihin, syödään, juodaan ja pidetään hauskaa yhdessä.
-    </li>
-  </ul>
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-zinc-800">Sitsit</h3>
+          <p>
+            Sitsit eli akateemiset pöytäjuhlat ovat tapahtuma, joissa opiskelijat kerääntyvät syömään, juomaan ja laulamaan sitsilauluja, ja ohjelmaan kuuluu usein huumorilla maustettuja puheita. Sitsejä ohjaavat pöydän päät eli toastmasterit. Tapahtumassa noudatetaan sääntöjä, joiden rikkomisesta seuraa leikkimielinen rangaistus, ja niillä on usein teema ja/tai pukukoodi.
+          </p>
+        </div>
 
-  <h3 class="text-xl font-semibold mt-4 mb-2">Syysfest ja Särkänmärkä</h3>
-  <p>
-    Nämä ovat joka vuosi järjestettävät tapahtumat Särkänniemessä, joissa pääsee laitteisiin ja Näsinneulaan. Syysfest on syksyllä ja Särkänmärkä keväällä.
-  </p>
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-zinc-800">Syysfest ja Särkänmärkä</h3>
+          <p>
+            Nämä ovat joka vuosi järjestettävät tapahtumat Särkänniemessä, joissa pääsee laitteisiin ja Näsinneulaan. Syysfest on syksyllä ja Särkänmärkä keväällä.
+          </p>
+        </div>
+      </div>
 
-  <h2 id="alkoholittomuus" class="text-2xl font-bold mt-8 mb-4">Alkoholittomuus Tapahtumissa</h2>
-  <p>
-    Onko tapahtumissa pakko juoda alkoholia? Ei ole! Nykyään kaikki tapahtumat voi suorittaa alkoholittomasti. Esimerkiksi useilla approilla vedestä tai limsasta saa leiman appropassiin.
-  </p>
-</Layout>
+      <hr class="my-10 sm:my-12 border-zinc-200" />
+
+      <h3 id="veton-tapahtumat" class="text-2xl font-bold mb-6">VETO:n Omat Tapahtumat</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-12">
+        <div class="border border-zinc-200 p-5 sm:p-6 rounded-xl hover:border-zinc-400 transition-colors">
+          <strong class="block text-lg mb-2">Vetosunnarikämppäapprot</strong>
+          <p class="text-zinc-600 text-sm">
+            VETO:n omat kämppäapprot järjestetään nimensä mukaan sunnuntaina joka syksy. Tapahtumassa kierretään etukäteen ilmoittautuneiden asuntoja, joissa omistaja tarjoaa esimerkiksi syötävää tai pitää pienen rastin.
+          </p>
+        </div>
+        <div class="border border-zinc-200 p-5 sm:p-6 rounded-xl hover:border-zinc-400 transition-colors">
+          <strong class="block text-lg mb-2">Jäsenilta</strong>
+          <p class="text-zinc-600 text-sm">
+            Joka lukukauden lopussa järjestettävä ilta, johon pääsevät kaikki VETO:n jäsenyyden ja Kide App -lipun ostaneet. Ohjelmassa jaetaan palkintoja tai diplomeja, osallistutaan rasteihin tai kisoihin, syödään, juodaan ja pidetään hauskaa yhdessä.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-blue-50 text-blue-900 p-5 sm:p-6 rounded-xl border border-blue-100">
+        <h2 id="alkoholittomuus" class="text-lg font-bold mb-2">Alkoholittomuus Tapahtumissa</h2>
+        <p>
+          Onko tapahtumissa pakko juoda alkoholia? Ei ole! Nykyään kaikki tapahtumat voi suorittaa alkoholittomasti. Esimerkiksi useilla approilla vedestä tai limsasta saa leiman appropassiin.
+        </p>
+      </div>
+    </Layout>
+  </body>
+</html>

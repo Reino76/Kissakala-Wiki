@@ -2,28 +2,38 @@
 import Layout from '../layouts/Layout.jsx';
 ---
 
-<Layout title="Koti" client:load>
-  <p class="text-xl leading-relaxed text-zinc-600 mb-8">
-    Tervetuloa Kissakalaan! Blublublub!
-  </p>
-  
-  <h2 class="text-2xl font-bold mt-8 mb-4">Miten käytän tätä wikiä?</h2>
-  <p>
-Sisältö on jaettu kolmeen pääkategoriaan:
-  </p>
-  
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-    <a href="/Kissakala-Wiki/opinnot" class="block p-6 border border-zinc-200 rounded-xl hover:border-zinc-900 hover:shadow-md transition-all group">
-      <h3 class="font-bold text-lg mb-2 group-hover:text-zinc-600 transition-colors">Opinnot & Kurssit</h3>
-      <p class="text-sm text-zinc-500">Tietoa tiimioppimisesta, HOPSista ja työelämäoppimisesta.</p>
-    </a>
-    <a href="/Kissakala-Wiki/projektit" class="block p-6 border border-zinc-200 rounded-xl hover:border-zinc-900 hover:shadow-md transition-all group">
-      <h3 class="font-bold text-lg mb-2 group-hover:text-zinc-600 transition-colors">Käytäntö & Projektit</h3>
-      <p class="text-sm text-zinc-500">Kaikki projekteista, tuntien kirjaamisesta ja opiskelun työkaluista.</p>
-    </a>
-    <a href="/Kissakala-Wiki/opiskelijaelama" class="block p-6 border border-zinc-200 rounded-xl hover:border-zinc-900 hover:shadow-md transition-all group">
-      <h3 class="font-bold text-lg mb-2 group-hover:text-zinc-600 transition-colors">Opiskelijaelämä</h3>
-      <p class="text-sm text-zinc-500">Tapahtumat, opiskelijaelämä.</p>
-    </a>
-  </div>
-</Layout>
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Koti - Kissakala Wiki</title>
+  </head>
+  <body>
+    <Layout title="Koti" client:load>
+      <p class="text-xl leading-relaxed text-zinc-600 mb-8">
+        Tervetuloa Kissakala-wikiin! Tämä on VETO-koulutuksen ensimmäisen vuoden opiskelijoille suunnattu tietopankki, johon on koottu kaikki olennainen opintojen aloittamiseen ja opiskelijaelämään liittyvä tieto.
+      </p>
+      
+      <h2 class="text-2xl font-bold mt-8 mb-4">Miten käytän tätä wikiä?</h2>
+      <p>
+        Voit navigoida sivustolla vasemman reunan valikosta. Sivuston sisältö on jaettu kolmeen pääkategoriaan:
+      </p>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-6">
+        <a href="/Kissakala-Wiki/opinnot/" class="block p-5 sm:p-6 border border-zinc-200 rounded-xl hover:border-zinc-900 hover:shadow-md transition-all group">
+          <h3 class="font-bold text-lg mb-2 group-hover:text-zinc-600 transition-colors">Opinnot & Kurssit</h3>
+          <p class="text-sm text-zinc-500">Tietoa tiimioppimisesta, HOPSista ja työelämäoppimisesta.</p>
+        </a>
+        <a href="/Kissakala-Wiki/projektit/" class="block p-5 sm:p-6 border border-zinc-200 rounded-xl hover:border-zinc-900 hover:shadow-md transition-all group">
+          <h3 class="font-bold text-lg mb-2 group-hover:text-zinc-600 transition-colors">Käytäntö & Projektit</h3>
+          <p class="text-sm text-zinc-500">Kaikki projekteista, tuntien kirjaamisesta ja opiskelun työkaluista.</p>
+        </a>
+        <a href="/Kissakala-Wiki/opiskelijaelama/" class="block p-5 sm:p-6 border border-zinc-200 rounded-xl hover:border-zinc-900 hover:shadow-md transition-all group">
+          <h3 class="font-bold text-lg mb-2 group-hover:text-zinc-600 transition-colors">Opiskelijaelämä</h3>
+          <p class="text-sm text-zinc-500">Tapahtumat, approt, lipunmyynti ja VETO:n omat perinteet.</p>
+        </a>
+      </div>
+    </Layout>
+  </body>
+</html>
