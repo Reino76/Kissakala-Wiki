@@ -4,6 +4,7 @@ import '../styles/global.css';
 export default function Layout({ children, title = "Kissakala Wiki" }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
+  // Varmistetaan, että 'name' vastaa täsmälleen Astro-sivun 'title'-propia
   const navigation = [
     { name: 'Koti', href: '/Kissakala-Wiki/' },
     { 
@@ -16,16 +17,28 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
       name: 'Käytäntö', 
       items: [
         { name: 'Projektit', href: '/Kissakala-Wiki/projektit' },
-        { name: 'Ohjelmistot & Sovellukset', href: '/Kissakala-Wiki/ohjelmistot' },
+        { name: 'Ohjelmistot ja Sovellukset', href: '/Kissakala-Wiki/ohjelmistot' },
       ]
     },
     { 
       name: 'Opiskelijaelämä', 
       items: [
-        { name: 'Tapahtumat & Muu hupi', href: '/Kissakala-Wiki/opiskelijaelama' },
+        { name: 'Opiskelijaelämä & Tapahtumat', href: '/Kissakala-Wiki/opiskelijaelama' },
       ]
     },
   ];
+
+  // Litistetään navigaatio yhdeksi listaksi painikkeita varten
+  const flatNav = navigation.reduce((acc, curr) => {
+    if (curr.href) acc.push(curr);
+    if (curr.items) acc.push(...curr.items);
+    return acc;
+  }, []);
+
+  // Etsitään nykyisen sivun indeksi otsikon (title) perusteella
+  const currentIndex = flatNav.findIndex(item => item.name === title);
+  const prevPage = currentIndex > 0 ? flatNav[currentIndex - 1] : null;
+  const nextPage = currentIndex !== -1 && currentIndex < flatNav.length - 1 ? flatNav[currentIndex + 1] : null;
 
   return (
     <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-zinc-900 selection:text-white">
@@ -54,7 +67,14 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
                 <ul className="space-y-1 border-l border-zinc-100 ml-1">
                   {group.items?.map((item) => (
                     <li key={item.name}>
-                      <a href={item.href} className="block py-1.5 pl-4 text-sm text-zinc-600 hover:text-zinc-900 border-l-2 border-transparent hover:border-zinc-900 -ml-[1px] transition-all">
+                      <a 
+                        href={item.href} 
+                        className={`block py-1.5 pl-4 text-sm hover:text-zinc-900 border-l-2 -ml-[1px] transition-all ${
+                          title === item.name 
+                            ? 'border-zinc-900 text-zinc-900 font-semibold' 
+                            : 'border-transparent text-zinc-600 hover:border-zinc-300'
+                        }`}
+                      >
                         {item.name}
                       </a>
                     </li>
@@ -65,10 +85,10 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
           </nav>
         </aside>
 
-        <main className="flex-1 max-w-3xl min-w-0">
-          <article className="prose prose-zinc max-w-none">
+        <main className="flex-1 max-w-3xl min-w-0 flex flex-col min-h-[calc(100vh-12rem)]">
+          <article className="prose prose-zinc max-w-none flex-grow">
             <nav className="flex text-xs text-zinc-400 mb-4 gap-2 uppercase tracking-wide font-bold">
-              <a href="/Kissakala-Wiki/" className="hover:text-zinc-900">Home</a>
+              <a href="/Kissakala-Wiki/" className="hover:text-zinc-900">Koti</a>
               <span>/</span>
               <span className="text-zinc-900">{title}</span>
             </nav>
@@ -77,6 +97,29 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
                {children}
             </div>
           </article>
+
+          {/* Edellinen / Seuraava -painikkeet */}
+          <div className="mt-16 pt-8 border-t border-zinc-200 flex justify-between items-center">
+            {prevPage ? (
+              <a href={prevPage.href} className="group flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-zinc-50 transition-colors text-zinc-600 hover:text-zinc-900">
+                <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold uppercase tracking-wider text-zinc-400">Edellinen</span>
+                  <span className="text-sm font-semibold">{prevPage.name}</span>
+                </div>
+              </a>
+            ) : <div />}
+
+            {nextPage ? (
+              <a href={nextPage.href} className="group flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-zinc-50 transition-colors text-zinc-600 hover:text-zinc-900 text-right">
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold uppercase tracking-wider text-zinc-400">Seuraava</span>
+                  <span className="text-sm font-semibold">{nextPage.name}</span>
+                </div>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              </a>
+            ) : <div />}
+          </div>
         </main>
       </div>
     </div>
