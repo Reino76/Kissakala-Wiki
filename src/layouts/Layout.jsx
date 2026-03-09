@@ -7,18 +7,22 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
   const navigation = [
     { name: 'Koti', href: '/Kissakala-Wiki/' },
     { 
-      name: 'Aloitusteksti', 
+      name: 'Opinnot & Kurssit', 
       items: [
-        { name: 'Blabla', href: '/Kissakala-Wiki/intro' },
-        { name: 'Blublub', href: '/Kissakala-Wiki/map' },
-        { name: 'Mjäyyy', href: '/Kissakala-Wiki/enrollment' },
+        { name: 'Opintojen Rakenne', href: '/Kissakala-Wiki/opinnot' },
       ]
     },
     { 
-      name: 'Murrr', 
+      name: 'Käytäntö', 
       items: [
-        { name: 'Miauuuu', href: '/Kissakala-Wiki/courses' },
-        { name: 'Mjäyyyyyy', href: '/Kissakala-Wiki/grading' },
+        { name: 'Projektit', href: '/Kissakala-Wiki/projektit' },
+        { name: 'Ohjelmistot & Sovellukset', href: '/Kissakala-Wiki/ohjelmistot' },
+      ]
+    },
+    { 
+      name: 'Opiskelijaelämä', 
+      items: [
+        { name: 'Tapahtumat & Muu hupi', href: '/Kissakala-Wiki/opiskelijaelama' },
       ]
     },
   ];
