@@ -1,8 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/global.css';
 
 export default function Layout({ children, title = "Kissakala Wiki" }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  // Effect to handle smooth scrolling and highlighting on page load or hash change
+  useEffect(() => {
+    const handleHashAndHighlight = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        // Slight timeout ensures Astro has finished rendering the DOM
+        setTimeout(() => {
+          const targetId = hash.replace('#', '');
+          const element = document.getElementById(targetId);
+          
+          if (element) {
+            // Smoothly scroll the element to the center of the screen
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Add the highlight animation class
+            element.classList.add('highlight-target');
+            
+            // Remove the class after the animation completes (1.5s) so it can be triggered again later
+            setTimeout(() => {
+              element.classList.remove('highlight-target');
+            }, 1500);
+          }
+        }, 100);
+      }
+    };
+
+    // Run on initial load
+    handleHashAndHighlight();
+
+    // Run when the hash changes (clicking an internal link on the same page)
+    window.addEventListener('hashchange', handleHashAndHighlight);
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashAndHighlight);
+    };
+  }, []);
 
   const navigation = [
     { name: 'Koti', href: '/Kissakala-Wiki/' },

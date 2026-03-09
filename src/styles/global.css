@@ -13,3 +13,24 @@
   background: #18181b;
   border-radius: 4px;
 }
+/* Enable smooth scrolling globally */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animation for highlighting the target element */
+@keyframes target-flash {
+  0% { 
+    background-color: #fde047; /* Tailwind yellow-300 */
+    box-shadow: 0 0 0 4px #fde047; /* Extends the color a bit outside the text */
+  }
+  100% { 
+    background-color: transparent;
+    box-shadow: 0 0 0 4px transparent;
+  }
+}
+
+.highlight-target {
+  animation: target-flash 1.5s ease-out forwards;
+  border-radius: 0.25rem;
+}
