@@ -4,7 +4,6 @@ import '../styles/global.css';
 export default function Layout({ children, title = "Kissakala Wiki" }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
-  // Varmistetaan, että 'name' vastaa täsmälleen Astro-sivun 'title'-propia
   const navigation = [
     { name: 'Koti', href: '/Kissakala-Wiki/' },
     { 
@@ -27,18 +26,6 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
       ]
     },
   ];
-
-  // Litistetään navigaatio yhdeksi listaksi painikkeita varten
-  const flatNav = navigation.reduce((acc, curr) => {
-    if (curr.href) acc.push(curr);
-    if (curr.items) acc.push(...curr.items);
-    return acc;
-  }, []);
-
-  // Etsitään nykyisen sivun indeksi otsikon (title) perusteella
-  const currentIndex = flatNav.findIndex(item => item.name === title);
-  const prevPage = currentIndex > 0 ? flatNav[currentIndex - 1] : null;
-  const nextPage = currentIndex !== -1 && currentIndex < flatNav.length - 1 ? flatNav[currentIndex + 1] : null;
 
   return (
     <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-zinc-900 selection:text-white">
@@ -97,29 +84,6 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
                {children}
             </div>
           </article>
-
-          {/* Edellinen / Seuraava -painikkeet */}
-          <div className="mt-16 pt-8 border-t border-zinc-200 flex justify-between items-center">
-            {prevPage ? (
-              <a href={prevPage.href} className="group flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-zinc-50 transition-colors text-zinc-600 hover:text-zinc-900">
-                <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-                <div className="flex flex-col">
-                  <span className="text-xs font-bold uppercase tracking-wider text-zinc-400">Edellinen</span>
-                  <span className="text-sm font-semibold">{prevPage.name}</span>
-                </div>
-              </a>
-            ) : <div />}
-
-            {nextPage ? (
-              <a href={nextPage.href} className="group flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-zinc-50 transition-colors text-zinc-600 hover:text-zinc-900 text-right">
-                <div className="flex flex-col">
-                  <span className="text-xs font-bold uppercase tracking-wider text-zinc-400">Seuraava</span>
-                  <span className="text-sm font-semibold">{nextPage.name}</span>
-                </div>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-              </a>
-            ) : <div />}
-          </div>
         </main>
       </div>
     </div>
