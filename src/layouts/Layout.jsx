@@ -46,6 +46,7 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
       name: 'Opinnot & Kurssit', 
       items: [
         { name: 'Opintojen Rakenne', href: '/Kissakala-Wiki/opinnot' },
+        { name: 'Yhteystiedot', href: '/Kissakala-Wiki/yhteystiedot' }, // UUSI LINKKI LISÄTTY TÄHÄN
       ]
     },
     { 
