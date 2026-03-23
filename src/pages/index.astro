@@ -46,13 +46,14 @@ import Layout from '../layouts/Layout.jsx';
             <span class="h-1 w-12 bg-pink-400 rounded-full"></span>
         </h2>
         
-        <div class="aspect-video w-full bg-zinc-900 rounded-3xl shadow-2xl overflow-hidden flex items-center justify-center text-white/20 italic relative group">
-          <div class="text-center">
-            <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-pink-500 group-hover:text-white transition-colors cursor-pointer shadow-inner">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-current translate-x-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <p class="text-sm font-bold uppercase tracking-widest opacity-50">Video Embed Space</p>
-          </div>
+        <div class="aspect-video w-full bg-zinc-900 rounded-3xl shadow-2xl overflow-hidden relative">
+          <iframe 
+            src="https://www.youtube.com/embed/m2jcDgvdo14" 
+            title="Veto Video"
+            class="absolute inset-0 w-full h-full border-0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
         </div>
       </div>
 
