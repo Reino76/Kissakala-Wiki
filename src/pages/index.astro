@@ -11,28 +11,52 @@ import Layout from '../layouts/Layout.jsx';
   </head>
   <body>
     <Layout title="Koti" client:load>
-      <p class="text-xl leading-relaxed text-zinc-600 mb-8">
-      </p>
       
-      <h2 class="text-2xl font-bold mt-8 mb-4">Miten käytän tätä wikiä?</h2>
-      <p>
+      <div class="w-full aspect-[21/9] bg-sky-200 rounded-3xl border-4 border-white shadow-xl flex flex-col items-center justify-center overflow-hidden mb-12 relative group">
+        <div class="absolute inset-0 flex items-center justify-center text-sky-800 font-black text-4xl sm:text-6xl italic opacity-50 group-hover:scale-105 transition-transform duration-500 text-center px-6">
+          JOKU HIENO KUVA
+        </div>
+        <div class="z-10 w-full h-full flex items-center justify-center">
+            </div>
+      </div>
+
+      <h2 class="text-3xl font-black tracking-tight mb-6 text-zinc-900">Miten käytän tätä wikiä?</h2>
+      <p class="text-lg text-zinc-600 mb-8">
         Voit navigoida sivustolla vasemman reunan valikosta. Sivuston sisältö on jaettu kolmeen pääkategoriaan:
       </p>
       
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-6">
-        <a href="/Kissakala-Wiki/opinnot/" class="block p-5 sm:p-6 border border-zinc-200 rounded-xl hover:border-zinc-900 hover:shadow-md transition-all group">
-          <h3 class="font-bold text-lg mb-2 group-hover:text-zinc-600 transition-colors">Opinnot & Kurssit</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
+        <a href="/Kissakala-Wiki/opinnot/" class="block p-6 bg-white border-2 border-zinc-100 rounded-2xl hover:border-pink-400 hover:shadow-lg transition-all group">
+          <h3 class="font-black text-lg mb-2 group-hover:text-pink-500 uppercase tracking-tight">Opinnot & Kurssit</h3>
           <p class="text-sm text-zinc-500">Tietoa tiimioppimisesta, HOPSista ja työelämäoppimisesta.</p>
         </a>
-        <a href="/Kissakala-Wiki/projektit/" class="block p-5 sm:p-6 border border-zinc-200 rounded-xl hover:border-zinc-900 hover:shadow-md transition-all group">
-          <h3 class="font-bold text-lg mb-2 group-hover:text-zinc-600 transition-colors">Käytäntö & Projektit</h3>
+        <a href="/Kissakala-Wiki/projektit/" class="block p-6 bg-white border-2 border-zinc-100 rounded-2xl hover:border-pink-400 hover:shadow-lg transition-all group">
+          <h3 class="font-black text-lg mb-2 group-hover:text-pink-500 uppercase tracking-tight">Käytäntö & Projektit</h3>
           <p class="text-sm text-zinc-500">Kaikki projekteista, tuntien kirjaamisesta ja opiskelun työkaluista.</p>
         </a>
-        <a href="/Kissakala-Wiki/opiskelijaelama/" class="block p-5 sm:p-6 border border-zinc-200 rounded-xl hover:border-zinc-900 hover:shadow-md transition-all group">
-          <h3 class="font-bold text-lg mb-2 group-hover:text-zinc-600 transition-colors">Opiskelijaelämä</h3>
+        <a href="/Kissakala-Wiki/opiskelijaelama/" class="block p-6 bg-white border-2 border-zinc-100 rounded-2xl hover:border-pink-400 hover:shadow-lg transition-all group">
+          <h3 class="font-black text-lg mb-2 group-hover:text-pink-500 uppercase tracking-tight">Opiskelijaelämä</h3>
           <p class="text-sm text-zinc-500">Tapahtumat, approt, lipunmyynti ja VETO:n omat perinteet.</p>
         </a>
       </div>
+
+      <div class="mt-20 border-t-2 border-zinc-100 pt-12 pb-12">
+        <h2 class="text-2xl font-black mb-6 uppercase tracking-tight flex items-center gap-3 text-zinc-900">
+            Veto Video
+            <span class="h-1 w-12 bg-pink-400 rounded-full"></span>
+        </h2>
+        
+        <div class="aspect-video w-full bg-zinc-900 rounded-3xl shadow-2xl overflow-hidden relative">
+          <iframe 
+            src="https://www.youtube.com/embed/m2jcDgvdo14" 
+            title="Veto Video"
+            class="absolute inset-0 w-full h-full border-0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
     </Layout>
   </body>
 </html>
