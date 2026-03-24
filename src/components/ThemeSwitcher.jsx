@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 const themes = [
   { name: 'Kissa', id: 'pink', color: 'bg-pink-400' },
-  { name: 'Veto', id: 'veto', color: 'bg-emerald-500' }
+  { name: 'Veto', id: 'veto', color: 'bg-emerald-500' },
+  { name: 'Tuni', id: 'tuni', color: 'bg-[#4e008e]' }
 ];
 
 export default function ThemeSwitcher() {

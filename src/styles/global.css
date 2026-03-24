@@ -10,12 +10,20 @@
   --brand-text: #831843; /* pink-900 */
 }
 
-/* Veto Theme (formerly Forest) */
+/* Veto Theme */
 [data-theme='veto'] {
   --brand-bg: #a7f3d0; /* emerald-200 */
   --brand-accent: #059669; /* emerald-600 */
   --brand-border: #6ee7b7; /* emerald-300 */
   --brand-text: #064e3b; /* emerald-900 */
+}
+
+/* Tuni Theme */
+[data-theme='tuni'] {
+  --brand-bg: #e2d5f3; /* Light Purple tint */
+  --brand-accent: #4e008e; /* Official Tuni Purple */
+  --brand-border: #9d78cc; 
+  --brand-text: #2a004d;
 }
 
 /* Helper Classes for the Theme */
