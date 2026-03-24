@@ -10,8 +10,9 @@ export default function ThemeSwitcher() {
   const [currentTheme, setCurrentTheme] = useState('pink');
 
   useEffect(() => {
+    // Sync UI with what Layout.jsx already set
     const saved = localStorage.getItem('kissakala-theme') || 'pink';
-    setTheme(saved);
+    setCurrentTheme(saved);
   }, []);
 
   const setTheme = (id) => {

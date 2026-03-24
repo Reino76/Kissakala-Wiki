@@ -4,9 +4,13 @@ import logo from '../images/Kissanaama.png';
 
 export default function Layout({ children, title = "Kissakala Wiki" }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const base = import.meta.env.BASE_URL; // Handles dynamic pathing
+  const base = import.meta.env.BASE_URL;
 
+  // Initialize theme sitewide and persist between sessions
   useEffect(() => {
+    const savedTheme = localStorage.getItem('kissakala-theme') || 'pink';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
     const handleHashAndHighlight = () => {
       const hash = window.location.hash;
       if (hash) {
@@ -50,7 +54,7 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-zinc-900 selection:text-white flex flex-col">
+    <div className="min-h-screen bg-white text-zinc-900 font-sans flex flex-col">
       <header className="sticky top-0 z-40 w-full h-16 border-b border-zinc-200 bg-white/90 backdrop-blur-md shrink-0">
         <div className="max-w-7xl mx-auto px-4 h-full flex items-center gap-4">
           <button onClick={() => setSidebarOpen(!isSidebarOpen)} className="p-2 lg:hidden text-zinc-500">
