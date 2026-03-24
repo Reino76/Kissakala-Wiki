@@ -3,19 +3,15 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  // SITE must be the base domain. BASE is the subfolder.
   site: 'https://Reino76.github.io',
-  base: '/Kissakala-Wiki',
+  // Only use the subfolder base if deploying to GitHub Pages
+  base: process.env.GITHUB_ACTIONS ? '/Kissakala-Wiki' : '/',
+  // ... rest of config
   trailingSlash: 'always',
   integrations: [
     react(), 
     tailwind({
-      applyBaseStyles: false, // We handle this in global.css
+      applyBaseStyles: false,
     })
   ],
-  vite: {
-    build: {
-      target: 'esnext'
-    }
-  }
 });
