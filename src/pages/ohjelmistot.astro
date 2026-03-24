@@ -1,19 +1,38 @@
 ---
 import Layout from '../layouts/Layout.jsx';
+
+// Standard button class for consistency
 const btnClass = "inline-flex items-center justify-center px-4 py-2 bg-white text-zinc-900 border border-zinc-200 text-[10px] font-black rounded-full uppercase tracking-widest dynamic-hover-accent transition-all w-full shadow-sm";
+
+// Helper for consistent logo placeholders
 const logoBox = "w-12 h-12 rounded-xl mb-4 flex items-center justify-center border border-zinc-100 shadow-inner font-black text-xl bg-zinc-50";
+
+// Define the apps and their specific metadata
+const apps = [
+  { name: 'Teams', desc: 'Tärkein viestintäkanava projekteille ja opinnoille.', link: 'https://teams.microsoft.com' },
+  { name: 'Tuudo', desc: 'Opiskelijakortti, lukujärjestykset ja opintosuoritukset.', link: 'https://www.tuudo.fi/' },
+  { name: 'Clockify', desc: 'Työkalu projektituntien seuraamiseen ja merkitsemiseen.', link: 'https://clockify.me/' },
+  { name: 'Discord', desc: 'VETO:n oma kanava vapaamuotoiseen yhteydenpitoon.', link: 'https://discord.com/' },
+  { name: 'Frank', desc: 'Opiskelija-alennukset ja digitaalinen opiskelijakortti.', link: 'https://www.frank.fi/' },
+  { name: 'Canva', desc: 'Helppo työkalu graafiseen suunnitteluun ja esityksiin.', link: 'https://www.canva.com/' },
+  { name: 'Kide.app', desc: 'Liput ja muut!', link: 'https://kide.app/' }
+];
 ---
 
 <Layout title="Ohjelmistot ja Sovellukset" client:load>
+  <p class="text-lg text-zinc-600 mb-8 font-medium">
+    Tärkeitä ohjelmistoja ja sovelluksia opintojen aikana.
+  </p>
+
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {['Teams', 'Tuudo', 'Clockify', 'Discord', 'Frank', 'Canva'].map((app) => (
-      <div class="bg-white p-6 rounded-3xl border-2 border-zinc-100 shadow-sm flex flex-col justify-between hover:border-zinc-300 transition-colors">
+    {apps.map((app) => (
+      <div id={app.name.toLowerCase().replace('.', '-')} class="bg-white p-6 rounded-3xl border-2 border-zinc-100 shadow-sm flex flex-col justify-between hover:border-zinc-300 transition-colors">
         <div>
-          <div class={logoBox}>{app[0]}</div>
-          <h3 class="text-xl font-black mb-2 uppercase tracking-tight">{app}</h3>
-          <p class="text-zinc-600 text-sm mb-4 leading-relaxed opacity-70">Opintojen tueksi tarkoitettu sovellus.</p>
+          <div class={logoBox}>{app.name[0]}</div>
+          <h3 class="text-xl font-black mb-2 uppercase tracking-tight text-zinc-900">{app.name}</h3>
+          <p class="text-zinc-600 text-sm mb-4 leading-relaxed opacity-70">{app.desc}</p>
         </div>
-        <a href="#" target="_blank" class={btnClass}>Avaa</a>
+        <a href={app.link} target="_blank" class={btnClass}>Avaa</a>
       </div>
     ))}
   </div>
