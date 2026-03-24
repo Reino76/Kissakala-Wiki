@@ -31,29 +31,31 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
     };
   }, []);
 
-  const navigation = [
-    { name: 'KOTI', href: '/Kissakala-Wiki/' },
-    { 
-      name: 'OPINNOT & KURSSIT', 
-      items: [
-        { name: 'Opintojen Rakenne', href: '/Kissakala-Wiki/opinnot/' },
-        { name: 'Yhteystiedot', href: '/Kissakala-Wiki/yhteystiedot/' },
-      ]
-    },
-    { 
-      name: 'KÄYTÄNTÖ', 
-      items: [
-        { name: 'Projektit', href: '/Kissakala-Wiki/projektit/' },
-        { name: 'Ohjelmistot ja Sovellukset', href: '/Kissakala-Wiki/ohjelmistot/' },
-      ]
-    },
-    { 
-      name: 'OPISKELIJAELÄMÄ', 
-      items: [
-        { name: 'Opiskelijaelämä & Tapahtumat', href: '/Kissakala-Wiki/opiskelijaelama/' },
-      ]
-    },
-  ];
+  const base = import.meta.env.BASE_URL; // This will be "/" or "/Kissakala-Wiki/"
+
+const navigation = [
+  { name: 'KOTI', href: `${base}` },
+  { 
+    name: 'OPINNOT & KURSSIT', 
+    items: [
+      { name: 'Opintojen Rakenne', href: `${base}opinnot/` },
+      { name: 'Yhteystiedot', href: `${base}yhteystiedot/` },
+    ]
+  },
+  { 
+    name: 'KÄYTÄNTÖ', 
+    items: [
+      { name: 'Projektit', href: `${base}projektit/` },
+      { name: 'Ohjelmistot ja Sovellukset', href: `${base}ohjelmistot/` },
+    ]
+  },
+  { 
+    name: 'OPISKELIJAELÄMÄ', 
+    items: [
+      { name: 'Opiskelijaelämä & Tapahtumat', href: `${base}opiskelijaelama/` },
+    ]
+  },
+];
 
   return (
     <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-pink-500 selection:text-white flex flex-col">

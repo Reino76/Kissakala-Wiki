@@ -3,10 +3,9 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
+  // Use the subfolder only when deploying to GitHub Actions
+  base: process.env.GITHUB_ACTIONS ? '/Kissakala-Wiki' : '', 
   site: 'https://Reino76.github.io',
-  // Only use the subfolder base if deploying to GitHub Page
-  base: process.env.GITHUB_ACTIONS ? '/Kissakala-Wiki' : '/',
-  // ... rest of config
   trailingSlash: 'always',
   integrations: [
     react(), 
@@ -14,4 +13,9 @@ export default defineConfig({
       applyBaseStyles: false,
     })
   ],
+  vite: {
+    build: {
+      target: 'esnext'
+    }
+  }
 });
