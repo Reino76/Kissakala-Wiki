@@ -1,5 +1,7 @@
 ---
-import Layout from '../layouts/Layout.jsx';
+import MainLayout from '../layouts/MainLayout.astro';
+
+const base = import.meta.env.BASE_URL;
 
 // Standard button class for consistency
 const btnClass = "inline-flex items-center justify-center px-4 py-2 bg-white text-zinc-900 border border-zinc-200 text-[10px] font-black rounded-full uppercase tracking-widest dynamic-hover-accent transition-all w-full shadow-sm";
@@ -19,7 +21,7 @@ const apps = [
 ];
 ---
 
-<Layout title="Ohjelmistot ja Sovellukset" client:load>
+<MainLayout title="Ohjelmistot ja Sovellukset">
   <p class="text-lg text-zinc-600 mb-8 font-medium">
     Tärkeitä ohjelmistoja ja sovelluksia opintojen aikana.
   </p>
@@ -36,4 +38,4 @@ const apps = [
       </div>
     ))}
   </div>
-</Layout>
+</MainLayout>

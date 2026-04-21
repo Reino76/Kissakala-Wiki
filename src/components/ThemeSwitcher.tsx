@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import type { Theme } from '../types';
 
-const themes = [
+const themes: Theme[] = [
   { name: 'Kissa', id: 'pink', color: 'bg-pink-400' },
   { name: 'Veto', id: 'veto', color: 'bg-emerald-500' },
   { name: 'Tuni', id: 'tuni', color: 'bg-[#4e008e]' }
@@ -24,7 +25,7 @@ export default function ThemeSwitcher() {
     return () => document.removeEventListener('astro:after-swap', syncTheme);
   }, []);
 
-  const setTheme = (id) => {
+  const setTheme = (id: string) => {
     setCurrentTheme(id);
     document.documentElement.setAttribute('data-theme', id);
     localStorage.setItem('kissakala-theme', id);

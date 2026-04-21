@@ -1,36 +1,27 @@
 ---
-import Layout from '../layouts/Layout.jsx';
+import MainLayout from '../layouts/MainLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
-<!DOCTYPE html>
-<html lang="fi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yhteystiedot - Kissakala Wiki</title>
-  </head>
-  <body>
-    <Layout title="Yhteystiedot" client:load>
-      <p class="mb-8 sm:mb-10 text-lg text-zinc-600">Täältä löydät tärkeimmät yhteystiedot VETO-opintojesi tueksi.</p>
+<MainLayout title="Yhteystiedot">
+  <p class="mb-8 sm:mb-10 text-lg text-zinc-600">Täältä löydät tärkeimmät yhteystiedot VETO-opintojesi tueksi.</p>
 
-      <div class="mb-12">
-        <h2 id="tiimivalmentajat" class="text-2xl font-bold mb-4">Tiimivalmentajat</h2>
-        <p class="mb-6">
-          Tiimivalmentaja on lähin ohjaajasi opintojen aikana. Hänen kanssaan käyt <a href="/opinnot/#systeemiajattelu" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">HOPS-keskustelut</a> ja sovit tiimisi yhteisistä asioista.
-        </p>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        </div>
-      </div>
+  <div class="mb-12">
+    <h2 id="tiimivalmentajat" class="text-2xl font-bold mb-4">Tiimivalmentajat</h2>
+    <p class="mb-6">
+      Tiimivalmentaja on lähin ohjaajasi opintojen aikana. Hänen kanssaan käyt <a href={`${base}opinnot/#systeemiajattelu`} class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">HOPS-keskustelut</a> ja sovit tiimisi yhteisistä asioista.
+    </p>
 
-      <hr class="my-10 sm:my-12 border-zinc-200" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    </div>
+  </div>
 
-      <div>
-        <h2 id="tutkintovalmentajat" class="text-2xl font-bold mb-4">Tutkintovalmentajat</h2>
-        <p class="mb-6">
-          Tutkintovalmentajaan voit olla yhteydessä, jos sinulla on kysyttävää opintojen rakenteesta laajemmassa mittakaavassa tai jos haluat hyväksyttää TAMK:in ulkopuolisia kursseja <a href="/opinnot/#tyoelamaoppiminen" class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">AAK-opintoihin</a>.
-        </p>
-      </div>
-    </Layout>
-  </body>
-</html>
+  <hr class="my-10 sm:my-12 border-zinc-200" />
+
+  <div>
+    <h2 id="tutkintovalmentajat" class="text-2xl font-bold mb-4">Tutkintovalmentajat</h2>
+    <p class="mb-6">
+      Tutkintovalmentajaan voit olla yhteydessä, jos sinulla on kysyttävää opintojen rakenteesta laajemmassa mittakaavassa tai jos haluat hyväksyttää TAMK:in ulkopuolisia kursseja <a href={`${base}opinnot/#tyoelamaoppiminen`} class="underline decoration-zinc-300 underline-offset-2 hover:text-zinc-600 transition-colors">AAK-opintoihin</a>.
+    </p>
+  </div>
+</MainLayout>

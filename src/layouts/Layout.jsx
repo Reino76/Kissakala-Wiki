@@ -6,11 +6,8 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const base = import.meta.env.BASE_URL;
 
-  // Initialize theme sitewide and persist between sessions
+  // Initialize hash and highlight handling
   useEffect(() => {
-    const savedTheme = localStorage.getItem('kissakala-theme') || 'pink';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-
     const handleHashAndHighlight = () => {
       const hash = window.location.hash;
       if (hash) {
@@ -55,7 +52,10 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
 
   return (
     <div className="min-h-screen bg-white text-zinc-900 font-sans flex flex-col">
-      <header className="sticky top-0 z-40 w-full h-16 border-b border-zinc-200 bg-white/90 backdrop-blur-md shrink-0">
+      <header 
+        style={{ viewTransitionName: 'header' }}
+        className="sticky top-0 z-40 w-full h-16 border-b border-zinc-200 bg-white/90 backdrop-blur-md shrink-0"
+      >
         <div className="max-w-7xl mx-auto px-4 h-full flex items-center gap-4">
           <button onClick={() => setSidebarOpen(!isSidebarOpen)} className="p-2 lg:hidden text-zinc-500">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" /></svg>
@@ -70,11 +70,26 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
       </header>
 
       <div className="flex-1 flex flex-col lg:flex-row relative">
-        <aside className={`fixed lg:sticky top-16 left-0 z-30 w-64 lg:w-60 shrink-0 h-[calc(100vh-4rem)] dynamic-sidebar border-r flex flex-col transition-all duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} overflow-hidden lg:self-start`}>
+        <aside 
+          style={{ viewTransitionName: 'sidebar' }}
+          className={`fixed lg:sticky top-16 left-0 z-30 w-64 lg:w-60 shrink-0 h-[calc(100vh-4rem)] dynamic-sidebar border-r flex flex-col transition-all duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} overflow-hidden lg:self-start`}
+        >
           <nav className="flex-1 flex flex-col p-4 gap-4 overflow-y-auto no-scrollbar">
             {navigation.map((group) => (
               <div key={group.name} className="flex flex-col items-center gap-1.5">
-                <div className="px-3 py-0.5 dynamic-accent text-white rounded-full text-[9px] font-black tracking-widest border shadow-sm uppercase">{group.name}</div>
+                {group.href ? (
+                  <a 
+                    href={group.href} 
+                    onClick={() => setSidebarOpen(false)}
+                    className="px-3 py-0.5 dynamic-accent text-white rounded-full text-[9px] font-black tracking-widest border shadow-sm uppercase hover:scale-105 transition-transform duration-200"
+                  >
+                    {group.name}
+                  </a>
+                ) : (
+                  <div className="px-3 py-0.5 dynamic-accent text-white rounded-full text-[9px] font-black tracking-widest border shadow-sm uppercase">
+                    {group.name}
+                  </div>
+                )}
                 <div className="flex flex-col gap-1 w-full">
                   {group.items?.map((item) => (
                     <a key={item.name} href={item.href} onClick={() => setSidebarOpen(false)} className={`block px-3 py-1 rounded-full text-center text-[11px] font-bold transition-all border shadow-sm ${title === item.name ? 'bg-zinc-900 text-white border-zinc-900' : 'bg-white text-zinc-600 border-zinc-50 hover:border-zinc-400'}`}>{item.name}</a>
@@ -90,7 +105,10 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
           </div>
         </aside>
 
-        <main className="flex-1 p-4 lg:p-12 bg-zinc-50/30 overflow-x-hidden min-w-0">
+        <main 
+          style={{ viewTransitionName: 'main-content' }}
+          className="flex-1 p-4 lg:p-12 bg-zinc-50/30 overflow-x-hidden min-w-0"
+        >
           <div className="max-w-4xl mx-auto">
             <article className="prose prose-zinc max-w-none">
               <nav className="flex text-[10px] text-zinc-400 mb-6 gap-2 uppercase tracking-widest font-black">

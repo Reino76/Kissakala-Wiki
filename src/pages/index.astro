@@ -1,47 +1,37 @@
 ---
-import Layout from '../layouts/Layout.jsx';
-import ThemeSwitcher from '../components/ThemeSwitcher.jsx';
+import MainLayout from '../layouts/MainLayout.astro';
+import ThemeSwitcher from '../components/ThemeSwitcher';
 const base = import.meta.env.BASE_URL; //
 ---
 
-<!DOCTYPE html>
-<html lang="fi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Koti - Kissakala Wiki</title>
-  </head>
-  <body>
-    <Layout title="Koti" client:load>
-      <div class="w-full aspect-[21/9] bg-zinc-100 rounded-3xl border-4 border-white shadow-xl flex flex-col items-center justify-center overflow-hidden mb-12 relative group">
-        <div class="absolute inset-0 flex items-center justify-center text-zinc-300 font-black text-4xl sm:text-6xl italic opacity-50 group-hover:scale-105 transition-transform duration-500 text-center px-6">JOKU HIENO KUVA</div>
-      </div>
+<MainLayout title="Koti">
+  <div class="w-full aspect-[21/9] bg-zinc-100 rounded-3xl border-4 border-white shadow-xl flex flex-col items-center justify-center overflow-hidden mb-12 relative group">
+    <div class="absolute inset-0 flex items-center justify-center text-zinc-300 font-black text-4xl sm:text-6xl italic opacity-50 group-hover:scale-105 transition-transform duration-500 text-center px-6">JOKU HIENO KUVA</div>
+  </div>
 
-      <h2 class="text-3xl font-black tracking-tight mb-6 text-zinc-900">Miten käytän tätä wikiä?</h2>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
-        <a href={`${base}opinnot/`} class="block p-6 bg-white border-2 border-zinc-100 rounded-2xl hover:shadow-lg transition-all dynamic-hover-accent group uppercase">
-          <h3 class="font-black text-lg mb-2">Opinnot & Kurssit</h3>
-          <p class="text-xs normal-case opacity-70">Tietoa tiimioppimisesta ja HOPSista.</p>
-        </a>
-        <a href={`${base}projektit/`} class="block p-6 bg-white border-2 border-zinc-100 rounded-2xl hover:shadow-lg transition-all dynamic-hover-accent group uppercase">
-          <h3 class="font-black text-lg mb-2">Käytäntö & Projektit</h3>
-          <p class="text-xs normal-case opacity-70">Kaikki projekteista ja työkaluista.</p>
-        </a>
-        <a href={`${base}opiskelijaelama/`} class="block p-6 bg-white border-2 border-zinc-100 rounded-2xl hover:shadow-lg transition-all dynamic-hover-accent group uppercase">
-          <h3 class="font-black text-lg mb-2">Opiskelijaelämä</h3>
-          <p class="text-xs normal-case opacity-70">Tapahtumat ja VETO:n perinteet.</p>
-        </a>
-      </div>
+  <h2 class="text-3xl font-black tracking-tight mb-6 text-zinc-900">Miten käytän tätä wikiä?</h2>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
+    <a href={`${base}opinnot/`} class="block p-6 bg-white border-2 border-zinc-100 rounded-2xl hover:shadow-lg transition-all dynamic-hover-accent group uppercase">
+      <h3 class="font-black text-lg mb-2">Opinnot & Kurssit</h3>
+      <p class="text-xs normal-case opacity-70">Tietoa tiimioppimisesta ja HOPSista.</p>
+    </a>
+    <a href={`${base}projektit/`} class="block p-6 bg-white border-2 border-zinc-100 rounded-2xl hover:shadow-lg transition-all dynamic-hover-accent group uppercase">
+      <h3 class="font-black text-lg mb-2">Käytäntö & Projektit</h3>
+      <p class="text-xs normal-case opacity-70">Kaikki projekteista ja työkaluista.</p>
+    </a>
+    <a href={`${base}opiskelijaelama/`} class="block p-6 bg-white border-2 border-zinc-100 rounded-2xl hover:shadow-lg transition-all dynamic-hover-accent group uppercase">
+      <h3 class="font-black text-lg mb-2">Opiskelijaelämä</h3>
+      <p class="text-xs normal-case opacity-70">Tapahtumat ja VETO:n perinteet.</p>
+    </a>
+  </div>
 
-      <ThemeSwitcher client:load />
+  <ThemeSwitcher client:load />
 
-      <div class="mt-20 border-t-2 border-zinc-100 pt-12 pb-12">
-        <h2 class="text-2xl font-black mb-6 uppercase tracking-tight flex items-center gap-3 text-zinc-900">Veto Video<span class="h-1 w-12 dynamic-accent rounded-full"></span></h2>
-        <div class="aspect-video w-full bg-zinc-900 rounded-3xl shadow-2xl overflow-hidden relative">
-          <iframe src="https://www.youtube.com/embed/m2jcDgvdo14" title="Veto Video" class="absolute inset-0 w-full h-full border-0" allowfullscreen></iframe>
-        </div>
-      </div>
-    </Layout>
-  </body>
-</html>
+  <div class="mt-20 border-t-2 border-zinc-100 pt-12 pb-12">
+    <h2 class="text-2xl font-black mb-6 uppercase tracking-tight flex items-center gap-3 text-zinc-900">Veto Video<span class="h-1 w-12 dynamic-accent rounded-full"></span></h2>
+    <div class="aspect-video w-full bg-zinc-900 rounded-3xl shadow-2xl overflow-hidden relative">
+      <iframe src="https://www.youtube.com/embed/m2jcDgvdo14" title="Veto Video" class="absolute inset-0 w-full h-full border-0" allowfullscreen></iframe>
+    </div>
+  </div>
+</MainLayout>

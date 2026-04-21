@@ -1,0 +1,74 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Layout from './Layout';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Kissakala Wiki - Opiskelijan tietopankki" } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href={`${base}favicon.png`} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - Kissakala Wiki</title>
+    <meta name="description" content={description} />
+    
+    <ViewTransitions />
+
+    <!-- Theme Flash Fix: Execute blocking script before paint -->
+    <script is:inline>
+      (function() {
+        const savedTheme = localStorage.getItem('kissakala-theme') || 'pink';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      })();
+    </script>
+  </head>
+  <body>
+    <Layout title={title} client:load>
+      <slot />
+    </Layout>
+  </body>
+</html>
+
+<style is:global>
+  /* Global styles */
+  ::selection {
+    background-color: var(--brand-accent);
+    color: white;
+  }
+
+  /* Custom Dynamic Transitions */
+  @keyframes slide-in {
+    from { transform: translateY(20px); opacity: 0; filter: blur(10px); }
+    to { transform: translateY(0); opacity: 1; filter: blur(0); }
+  }
+
+  @keyframes slide-out {
+    from { transform: translateY(0); opacity: 1; filter: blur(0); }
+    to { transform: translateY(-20px); opacity: 0; filter: blur(10px); }
+  }
+
+  /* Apply custom animation to the main content transition */
+  ::view-transition-old(main-content) {
+    animation: 400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-out;
+  }
+
+  ::view-transition-new(main-content) {
+    animation: 400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-in;
+  }
+
+  /* Ensure sidebar and header persist smoothly */
+  ::view-transition-group(sidebar),
+  ::view-transition-group(header) {
+    animation-duration: 400ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style>
