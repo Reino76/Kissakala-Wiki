@@ -2,11 +2,10 @@ import React from 'react';
 
 interface HeaderProps {
   onMenuClick: () => void;
-  logoSrc: string;
   base: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onMenuClick, logoSrc, base }) => {
+export const Header: React.FC<HeaderProps> = ({ onMenuClick, base }) => {
   return (
     <header 
       style={{ viewTransitionName: 'header' }}
@@ -19,9 +18,6 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, logoSrc, base }) =>
           </svg>
         </button>
         <a href={base} className="flex items-center gap-3 group">
-          <div className="w-10 h-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-            <img src={logoSrc} alt="Logo" className="w-full h-full object-contain rounded-lg border border-zinc-100 shadow-sm" />
-          </div>
           <span className="text-2xl font-black tracking-tighter uppercase italic text-zinc-800">KISSAKALA</span>
         </a>
       </div>

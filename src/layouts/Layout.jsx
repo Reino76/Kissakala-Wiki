@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/global.css';
-import logo from '../images/Kissanaama.png';
 
 export default function Layout({ children, title = "Kissakala Wiki" }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -61,9 +60,6 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" /></svg>
           </button>
           <a href={base} className="flex items-center gap-3 group">
-            <div className="w-10 h-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-              <img src={logo.src} alt="Logo" className="w-full h-full object-contain rounded-lg border border-zinc-100 shadow-sm" />
-            </div>
             <span className="text-2xl font-black tracking-tighter uppercase italic text-zinc-800">KISSAKALA</span>
           </a>
         </div>
@@ -98,11 +94,6 @@ export default function Layout({ children, title = "Kissakala Wiki" }) {
               </div>
             ))}
           </nav>
-          <div className="shrink-0 p-4 bg-black/5 border-t border-black/5">
-            <div className="flex flex-col items-center justify-center py-2 border-2 border-dashed border-black/10 rounded-2xl bg-white/30 min-h-[60px]">
-               <span className="text-[9px] font-black uppercase tracking-tighter opacity-30">Ala Kissa Grafiikka</span>
-            </div>
-          </div>
         </aside>
 
         <main 

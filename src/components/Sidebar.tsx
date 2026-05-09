@@ -46,11 +46,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, navigation,
           </div>
         ))}
       </nav>
-      <div className="shrink-0 p-4 bg-black/5 border-t border-black/5">
-        <div className="flex flex-col items-center justify-center py-2 border-2 border-dashed border-black/10 rounded-2xl bg-white/30 min-h-[60px]">
-           <span className="text-[9px] font-black uppercase tracking-tighter opacity-30">Ala Kissa Grafiikka</span>
-        </div>
-      </div>
     </aside>
   );
 };

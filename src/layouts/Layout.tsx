@@ -3,7 +3,6 @@ import { Header } from '../components/Header';
 import { Sidebar } from '../components/Sidebar';
 import type { NavGroup } from '../types';
 import '../styles/global.css';
-import logo from '../images/Kissanaama.png';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -59,7 +58,7 @@ export default function Layout({ children, title = "Kissakala Wiki" }: LayoutPro
 
   return (
     <div className="min-h-screen bg-white text-zinc-900 font-sans flex flex-col">
-      <Header onMenuClick={() => setSidebarOpen(!isSidebarOpen)} logoSrc={logo.src} base={base} />
+      <Header onMenuClick={() => setSidebarOpen(!isSidebarOpen)} base={base} />
 
       <div className="flex-1 flex flex-col lg:flex-row relative">
         <Sidebar 
